@@ -19,7 +19,27 @@
 import random  
 import string
 from show_hangman import txt_to_show
-from load_words import load_words
+import csv
+
+# Constant for words file
+WORDLIST_FILENAME = "words.csv"
+
+
+def load_words():
+
+    """
+    Function for loading words from 'csv' file.
+    """
+
+    print("Loading word list from file...")
+    wordlist = []
+    with open(WORDLIST_FILENAME, encoding='utf-8') as f:
+        csvreader = csv.DictReader(f) 
+        for line in csvreader:
+            wordlist.append(line['word'])
+    print(" ", len(wordlist), "words loaded.")
+
+    return wordlist
 
 
 def select_word(wordlist):
