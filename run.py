@@ -24,3 +24,20 @@ def select_word(wordlist):
     Random word from array wordlist
     """
     return random.choice(wordlist)
+
+
+def get_guessed_word(secret_word, letters_guessed):
+
+    """
+    Function that adds a letter if correct letter guessed,
+    otherwise adds '_'
+    """
+    
+    letter_list = []
+    for letter in secret_word:
+        if letter in letters_guessed:
+            letter_list.append(letter)
+        else:
+            letter_list.append("_ ")
+
+    return "".join(letter_list)
