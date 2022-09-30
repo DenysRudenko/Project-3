@@ -90,3 +90,19 @@ def match_with_gaps(my_word, other_word):
             if new_word[i] != other_word[i]:
                 return False
     return True
+
+
+def show_possible_matches(my_word):
+
+    """
+    
+    """
+    
+    matched_words = []
+    for word in wordlist:
+        if match_with_gaps(my_word, word):
+            matched_words.append(word)
+    if len(matched_words) == 0:
+        print("No matches found")
+    else:
+        print(" ".join(matched_words))
