@@ -41,3 +41,10 @@ def get_guessed_word(secret_word, letters_guessed):
             letter_list.append("_ ")
 
     return "".join(letter_list)
+
+
+def is_word_guessed(secret_word, letters_guessed):
+    first_set = set(secret_word)
+    second_set = set(letters_guessed)
+    difference = first_set - second_set
+    return len(difference) == 0
