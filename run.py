@@ -97,7 +97,7 @@ def show_possible_matches(my_word):
     """
     
     """
-    
+
     matched_words = []
     for word in wordlist:
         if match_with_gaps(my_word, word):
@@ -106,3 +106,79 @@ def show_possible_matches(my_word):
         print("No matches found")
     else:
         print(" ".join(matched_words))
+
+
+
+def hangman_with_hints(secret_word, mode=0):
+    
+    """
+    
+    """
+    
+    letters_guessed = []
+    guesses_remaining = 9
+    warnings_remaining = 3
+    vowels = "aeiou"
+
+    print("Welcome to the game Hangman!")
+    print(f'I am thinking of a word that is {len(secret_word)} letters long.')
+    print(f'You have {warnings_remaining} warnings left.')
+
+    while (guesses_remaining > 0) and not is_word_guessed(secret_word, letters_guessed):
+        print("-" * 12)
+        print(f'You have {guesses_remaining} guesses left.')
+        print(f'Available letters: {get_available_letters(letters_guessed)}')
+
+        wrong_input = False
+        letter = input("Please guess a letter:")
+
+        if mode == 1 and letter == "*":
+            print('Possible word matches are: ', end="")
+            show_possible_matches(get_guessed_word(
+                secret_word, letters_guessed))
+            continue
+
+        if len(letter) == 0:
+            print("Oops! This is no input letter. ", end="")
+            wrong_input = True
+
+        elif len(letter) > 1:
+            print(f'Oops! You have entered {len(letter)} letters. ', end="")
+            wrong_input = True
+        else:
+            if letter.lower() not in string.ascii_lowercase:
+                print(f'Oops! "{letter}" is not a valid letter. ', end="")
+                wrong_input = True
+            else:
+                letter = letter.lower()
+                if letter in letters_guessed:
+                    print("Oops! You`ve alredy guessed that letter. ", end="")
+                    wrong_input = True
+
+        if wrong_input:
+            if warnings_remaining > 0:
+                warnings_remaining -= 1
+                print(f'You have {warnings_remaining} warnings left: ', end="")
+            else:
+                guesses_remaining -= 1
+
+        else:
+            letters_guessed.append(letter)
+            if letter in secret_word:
+                print("Good gueess: ", end="")
+            else:
+                guesses_remaining -= 2 if letter in vowels else 1
+                print("Oops! That letter is not in my word: ", end="")
+
+        print(get_guessed_word(secret_word, letters_guessed))
+
+        print(txt_to_show(9 - guesses_remaining))
+
+    print("-" * 12)
+
+    if guesses_remaining > 0:
+        total_score = guesses_remaining * len(set(secret_word))
+        print(
+            f'Congratulations, you won! Your total score for this game is: {total_score}.')
+    else:
+        print(f'Sorry, you ran out of guesses. The word was {secret_word}.')
