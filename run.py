@@ -112,7 +112,7 @@ def show_possible_matches(my_word):
 def hangman_with_hints(secret_word, mode=0):
     
     """
-    
+
     """
     
     letters_guessed = []
@@ -182,3 +182,19 @@ def hangman_with_hints(secret_word, mode=0):
             f'Congratulations, you won! Your total score for this game is: {total_score}.')
     else:
         print(f'Sorry, you ran out of guesses. The word was {secret_word}.')
+
+
+wordlist = load_words()
+secret_word = select_word(wordlist)
+
+# Gives two options for the user
+input_mode = input(
+    "\nIf you want to play with hints press - 1, otherwise press - 0:\n")
+
+mode = 0
+
+if input_mode == "1":
+    mode = 1
+
+
+hangman_with_hints(secret_word, mode)
