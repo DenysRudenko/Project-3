@@ -76,18 +76,18 @@ Go back to [Table of contents](#table-of-contents)
 ## Features 
 
 ### Instructions 
-- The instructions page explains to the user how the game is played and then asks the user if they are ready for the game.
+- The fist message is showing how much words we use in this game.There is an option to play with hints or without hints.
 <img src="images/welcome.png" alt="Screenshot of instructions page">
 
 ### Game
-- When the user starts the game, it shows the user the length of the word they are guessing and asks the user to enter a letter.
+- When the user starts the game, it shows the user the length of the word they are guessing and asks the user to enter a letter.There is also displayed how many warnings user have.
 <img src="images/game.png" alt="Screenshot of game page">
 
-- While the user is playing the game page also shows other things such as if their last guess was valid, correct, or incorrect, how many tries the user has left, what letters the user has used so far and the letters guessed correctly in their positions within the word. 
+- While the user is playing the game page also shows other things such as error if letter incorrect and showing that user have less guesses.
 <img src="images/mistake.png" alt="Screenshot of game page whilst being played">
 
 ### Winning message
-- If the user guesses all letter correctly it will take them to a page that congradulates them and asks the user if they would like to play again.
+- If the user guesses all letter correctly it will take them to a page that congradulates user and shows your total score.
 <img src="images/won.png" alt="Screenshot of the end of the game if the player has won">
 
 ### Extra features
