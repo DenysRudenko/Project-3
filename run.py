@@ -140,7 +140,7 @@ def hangman_with_hints(secret_word, mode=0):
     warnings_remaining = 3
     vowels = "aeiou"
 
-    print("Welcome to the game Hangman!")
+    print("\nWelcome to the game Hangman!")
     print(f'I am thinking of a word that is {len(secret_word)} letters long.')
     print(f'You have {warnings_remaining} warnings left.')
 
@@ -207,9 +207,10 @@ def hangman_with_hints(secret_word, mode=0):
 wordlist = load_words()
 secret_word = select_word(wordlist)
 
+print("\nInstruction:\nIf you decide to play with hints press '*' to get a clue for a word.")
 # Gives two options for the user
 input_mode = input(
-    "\nIf you want to play with hints press - 1, otherwise press - 0:\n")
+    "If you want to play with hints press - 1, otherwise press - 0:\n")
 
 mode = 0
 
