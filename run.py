@@ -44,7 +44,27 @@ def get_guessed_word(secret_word, letters_guessed):
 
 
 def is_word_guessed(secret_word, letters_guessed):
+    
+    """
+    Creating sets for secret word and guessed word.
+    """
+
     first_set = set(secret_word)
     second_set = set(letters_guessed)
     difference = first_set - second_set
     return len(difference) == 0
+
+
+def get_available_letters(letters_guessed):
+
+    """
+    Creating an array for letters and showing them lowercase type,
+    adding correct letters in array.
+    """
+
+    available_letters = []
+    abc = string.ascii_lowercase
+    for letter in abc:
+        if letter not in letters_guessed:
+            available_letters.append(letter)
+    return "".join(available_letters)
