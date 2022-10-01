@@ -1,23 +1,19 @@
-# 1 - print 'Stand'
-# 2 - additionaly print 'Bar'
-# 3 - additionaly print 'Rope'
-# 4 - additionaly print 'Head'
-# 5 - additionaly print 'Body'
-# 6 - additionaly print 'Right hand'
-# 7 - additionaly print 'Left hand'
-# 8 - additionaly print 'Right leg'
-# 9 - additionaly print 'Left leg'
+"""
+Description about hangman.
+
+1 - print 'Stand',2 - additionaly print 'Bar',3 - additionaly print 'Rope',4 - additionaly print 'Head',5 - additionaly print 'Body'
+6 - additionaly print 'Right hand',7 - additionaly print 'Left hand',8 - additionaly print 'Right leg',9 - additionaly print 'Left leg'
+"""
 
 
 def txt_to_show(n):
-
     """
-    Picture of hangman and properties that represents for
-    showing the correct part of the body to user,
+    About function.
+
+    Picture of hangman and properties that represents for showing the correct part of the body to user,
+
     depends how much incorrect letters user gets.
-    
     """
-
     t1 = "-------------    "  # bar
     t21 = "|| "               # stand
     t22 = "         |    "    # rope

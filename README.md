@@ -125,17 +125,17 @@ The Python results came back with the following:
 
 <img src="images/error1.png" alt="show_hangman.py results">
 
-- 7x line too long 
 
-- To fix this I edited the long lines and made them into multiple shorter lines within the same print/input statement:
-    - Before example:
-    <img src="images/lines-before.png" alt="Screenshot of a line before"> 
+- To fix this show_hangman.py file errors I edited my docstring like that:
 
-    - After example:
-    <img src="images/lines-after.png" alt="Screenshot of a line after"> 
+    <img src="images/fixed_run.png" alt="Screenshot of a line before"> 
 
-- I then retested with PEP8 and it came back clear:
-<img src="images/all-good.png" alt="pep8 after"> 
+
+- To fix this run.py file errors I edited my docstring like that:
+    
+    <img src="images/run1.png" alt="pep8 after"> 
+    <img src="images/run2.png" alt="pep8 after"> 
+    <img src="images/run3.png" alt="pep8 after"> 
 
 
 ### Manual Testing 
