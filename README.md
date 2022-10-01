@@ -185,11 +185,11 @@ Go back to [Table of contents](#table-of-contents)
 This project was deployed using Code Institute`s mock terminal Heroku.
 
 
-- Steps for deployment:
-1.Fork or clone tepository.
-2.Create a new Heroku app.
-3.Link the heroku app to the repository.
-4.Click on Deploy.
+1.Steps for deployment:
+- Fork or clone tepository.
+- Create a new Heroku app.
+- Link the heroku app to the repository.
+- Click on Deploy.
 
 Go back to [Table of contents](#table-of-contents)
 
