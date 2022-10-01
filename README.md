@@ -26,8 +26,7 @@ The player guessing the word may, at any time, attempt to guess the whole word.[
     - [Manual Testing](#manual-testing)
     - [Bugs](#bugs)
 4. [Deployment](#deployment)
-5. [Finished product](#finished-product)
-6. [Credits](#credits)
+5. [Credits](#credits)
     
 ## Plans and structure 
 
@@ -141,175 +140,64 @@ The Python results came back with the following:
 ### Manual Testing 
 
 1. Would the user like to see the instructions?
- the user is asked to input either 1 for yes or 2 for no. 
+ the user is asked to input letter. 
 
- - First, I tested what would happen if the user typed anything other than 1 or 2: Error message shows, results were as expected.
+ - First, I tested what would happen if the user typed anything other than letter: Error message shows, results were as expected.
 
- <img src="images/see-inst-invalid.png" alt="Screenshot of invalid input"> 
+ <img src="images/check0.png" alt="Screenshot of invalid input"> 
 
- - Next I tested what would happen if the user typed 1: Shows instructions, results were as expected.
+ - Next I tested what would happen if the user end of warnings.It should start to count user number of guesses.
 
- <img src="images/see-inst-1.png" alt="image of what happens when user types 1">
+ <img src="images/check1.png" alt="image of what happens when user types 1">
 
- - Last I tested what would happen if the user typed 2: Game starts, results were as expected.
+ - Last I tested what would happen if the user typed 2 letters: Results were as expected.
 
- <img src="images/see-inst-2.png" alt="image of what happens when user types 2"> 
+ <img src="images/check2.png" alt="image of what happens when user types 2"> 
 
-2. After reading the instructions the user is asked if they are ready to play, 1 for yes and 2 for no.
-
- - First, I tested what would happen if the user typed anything other than 1 or 2: Error message shows, results were as expected.
+2. I decided the change the Welcome Page.
  
- <img src="images/ready-invalid.png" alt="screenshot of invalid input"> 
+ <img src="images/welcome1.png" alt="screenshot of invalid input"> 
 
- - Next I tested what would happen if the user typed 1: Game starts, results were as expected.
+ - Next I tested what would happen if the user fail with guesses.
 
- <img src="images/ready-1.png" alt="image of what happens when user types 1">
+ <img src="images/fail2.png" alt="image of what happens when user types 1">
 
- - Last I tested what would happen if the user typed 2: User us sent back to welcome page, results were as expected.
+ - Next I tested what would happen if the user typed '*': User showed up a clue, results were as expected.
 
- <img src="images/ready-2.png" alt="image of what happens when user types 2"> 
+ <img src="images/clue2.png" alt="image of what happens when user types *"> 
 
-3. Once game has started the user is asked to enter a letter.
+ - Last I tested what would happen if user input 2(without clues) but the user input '*'.
 
- - First, I tested what would happen if the user typed anything other a letter: Error message shows, results were as expected.
- 
- <img src="images/game-invalid.png" alt="screenshot of invalid input"> 
-
- - Next I tested what would happen if the user typed a valid yet incorrect guess: Try again message shows and tries are appended, results were as expected.
-
- <img src="images/game-incorrect.png" alt="image of what happens when users guess is incorrect">
-
- - Then I tested what would happen if the user typed a correct guess: correct letter is put into place in the word, results were as expected.
-
- <img src="images/game-correct.png" alt="image of what happens when users guess is correct"> 
-
- - Last I tested what would happen if the user typed a letter they had already guessed: You have already guessed that letter message shows, results were as expected.
- 
- <img src="images/game-repeat.png" alt="image of what happens when users guess is repeated"> 
-
-4. At the end of the game the user is asked if they want to play again, 1 for yes 2 for no.
- 
- - First, I tested what would happen if the user typed anything other than 1 or 2: Error message shows, results were as expected.
-
- <img src="images/again-invalid.png" alt="Screenshot of invalid input"> 
-
- - Next I tested what would happen if the user typed 1: Game starts again, results were as expected.
-
- <img src="images/again-1.png" alt="image of what happens when user types 1">
-
- - Last I tested what would happen if the user typed 2: Goodbye message shows, results were as expected.
-
- <img src="images/again-2.png" alt="image of what happens when user types 2"> 
+  <img src="images/star.png" alt="image of what happens when user types *"> 
 
 ### Bugs 
-1. I found that when a user guesses every letter in a word, the loop isn't ending meaning that if the user still has tries left even if they have guessed every letter, it will keep asking them to enter another letter until the user runs out of tries. 
+1. I found that my import didnt work, and i didnt found a solution.So I moved the function load_words.py --> run.py
 
 <img src="images/bug.png" alt="Screenshot of the bug">  
 
 - fixed? Yes
 
-- what did I do to fix it?
- 
-The code I originally had for this was:
-
-    guessed = False
-    while tries > 0 and len(word_letters) > 0:
-        reveal_word = [letter if letter in guessed_letters else "_" for letter in word]
-        if len(users_guess) == 1 and users_guess.isalpha():
-            if users_guess in guessed_letters:
-            
-            elif users_guess not in word:
-               
-            else:
-                if "_" not in word:
-                    guessed = True
-    else:
-        
-I Changed it to:
-
-    word_letters = set(word)
-    while tries > 0 and len(word_letters) > 0:
-        reveal_word = [letter if letter in guessed_letters else "_" for letter in word]
-        if len(users_guess) == 1 and users_guess.isalpha():
-            if users_guess in guessed_letters:
-            
-            elif users_guess not in word:
-               
-            else:
-                if users_guess in word_letters:
-                    word_letters.remove(users_guess)
-    else:
-            
-This means that every time a user guesses a correct letter, that letter is removed from the word_letters list and when that list is 0 the computer knows that they have guessed the whole word correctly.
 
 Go back to [Table of contents](#table-of-contents)
 
 ## Deployment 
 
-There were many steps to deploying this project to Heroku:
+This project was deployed using Code Institute`s mock terminal Heroku.
 
-1. If I had installed any packages to Gitpod, I would need to add then to a list of requirements. 
-- To do this I would have typed pip3 freeze > requirements.txt and hit enter, this would update the requirements.txt file.
-- I'd need to commit and push this to Github.
-- Heroku will use this list to install the dependencies into the application before the project is run.
-- However, I didn't need to do this as I had no packages installed.
-2. I went over to my Heroku dashboard and clicked on 'create a new app'.
-3. I chose a name for my app; every app must have a unique name so I couldn't call it hangman as this was already taken so I went for hang-the-guy.
-4. Selected my region and clicked create app. 
-5. I then went to the tab at the top of the page and clicked on settings. 
-6. Some apps will include sensitive data in the gitpod workspace that isn't in the github repository because it has been deliberately protected in the gitnore.file. I didn't have any sensitive data to protect but if I had done, I would have needed to create a config var to allow Heroku access to this data. 
- - To do this, I would have clicked reveal config vars.
- - Filled in the key for example: CREDS
- - Then copy and pasted the contents of that 'CREDS' file into the value field and clicked add. 
-7. I added the buildpacks needed by clicking on the buildpack button.
- - Here I selected python and pressed save changes.
- - Then repeated the same process but selected nodejs this time.
- - making sure it was done in that order with python at the top and nodejs under.
-8. I scrolled back up to the tab at the top and clicked deploy.
-9. I selected github as the deployment method and clicked connect to github.
-10. Once this is selected, I then searched for my github repository name, and connected to the correct repository.
-11. Then I scrolled down, here there were two options.
- - The first option being to enable automatic deployment, which means that Heroku will rebuild the app every time I pushed a change to github.
- - The other option being to manually deploy, which is the choice I went for with this project.
-12. When all the code is received from github there is a view button that it a link to the running app, I clicked this to make sure everything was running as expected.
+
+- Steps for deployment:
+1.Fork or clone tepository.
+2.Create a new Heroku app.
+3.Link the heroku app to the repository.
+4.Click on Deploy.
 
 Go back to [Table of contents](#table-of-contents)
 
-## Finished product
-
-Welcome page 
-<img src="images/finished-welcome.png" alt="Screenshot of the welcome page"> 
-
-The instructions
-<img src="images/finished-inst.png" alt="Screenshot of the instructions"> 
-
-The game
-<img src="images/finished-game.png" alt="Screenshot of the game"> 
-
-User guesses correct
-<img src="images/finished-correct.png" alt="Screenshot of the user guessing correct letter"> 
-
-User guesses incorrect
-<img src="images/finished-incorrect.png" alt="Screenshot of the user guessing incorrect letter"> 
-
-Winning message
-<img src="images/finished-win.png" alt="Screenshot of the winning message"> 
-
-Losing message
-<img src="images/finished-lose.png" alt="Screenshot of the losing message"> 
-
-End of game
-<img src="images/finished-end.png" alt="Screenshot of the end of the game"> 
-
-Go back to [Table of contents](#table-of-contents)
 
 ## Credits 
 
-- [Lucid chart](https://www.lucidchart.com/pages/) - This was used to create the flow chart in the planning process for this project. 
-- [random word generator](https://randomwordgenerator.com/) - I used this site to generate a list of random words.
-- [code beautifier](https://codebeautify.org/python-formatter-beautifier) - Helped make the code look neat.
-- [PEP8 validator](http://pep8online.com/) - was used to check the code was valid.
-- Youtube - I watched many different youtube videos on how to make hangman using python and learnt alot from many people.
-- Marcel - My mentor Marcel was extreamly helpful as always helping me feel confident in what I have made.
+- Code Institute for the deplyment terminal.
+- [et9719](https://www.lucidchart.com/pages/) - I used this repository for readme example.
+- [Denys Rudenko](https://github.com/DenysRudenko/Python-practices/tree/master/hangman_project) - I created Hangman previously, but I modifeded some functions.
 
 Go back to [Table of contents](#table-of-contents)
