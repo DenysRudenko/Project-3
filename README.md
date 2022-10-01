@@ -201,7 +201,7 @@ Go back to [Table of contents](#table-of-contents)
 
 ## Credits 
 
-- Code Institute for the deplyment terminal.
+- Code Institute for the deployment terminal.
 - [et9719](https://github.com/et9719/hangman) - I used this repository for readme example.
 - [Denys Rudenko](https://github.com/DenysRudenko/Python-practices/tree/master/hangman_project) - I created Hangman previously, but I modified some functions.
 
