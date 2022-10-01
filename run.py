@@ -1,20 +1,11 @@
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-# ------------------------------------------------------
-# Description:
-# This is the Hangman game, at the start of the program 
-# you have 2 options to play.
-# The 1st option is to play with clues(hints) by using 
-# "*" to get the clue.
-# The 2nd option is to play the game by default without
-# the clues.
-# After each wrong answer you might see the picture of 
-# "HangMan" till it`s fully completed.
-# If you guess the word you win.
-#
-# (C) 2022 Rudenko Denys, Dublin, Ireland
-# Released for Code Insitute
-# Email: heartbreathing19951014@gmail.com
-# ------------------------------------------------------
+"""
+Hangman.
+
+This is game developed for Code Institute.
+
+Denys Rudenko, Dublin, Ireland.
+Heartbreathing19951014@gmail.com
+"""
 
 import random  
 import string
@@ -26,11 +17,7 @@ WORDLIST_FILENAME = "words.csv"
 
 
 def load_words():
-
-    """
-    Function for loading words from 'csv' file.
-    """
-
+    """For loading words from 'csv' file."""
     print("Loading word list from file...")
     wordlist = []
     with open(WORDLIST_FILENAME, encoding='utf-8') as f:
@@ -43,19 +30,17 @@ def load_words():
 
 
 def select_word(wordlist):
-    """
-    Random word from array wordlist
-    """
+    """Random word from array wordlist."""
     return random.choice(wordlist)
 
 
 def get_guessed_word(secret_word, letters_guessed):
-
     """
-    Function that adds a letter if correct letter guessed,
+    Fucntion for get_guessed_word.
+    
+    Function  that adds a letter if correct letter guessed,
     otherwise adds '_'
     """
-    
     letter_list = []
     for letter in secret_word:
         if letter in letters_guessed:
@@ -67,11 +52,7 @@ def get_guessed_word(secret_word, letters_guessed):
 
 
 def is_word_guessed(secret_word, letters_guessed):
-    
-    """
-    Creating sets for secret word and guessed word.
-    """
-
+    """Create sets for secret word and guessed word."""
     first_set = set(secret_word)
     second_set = set(letters_guessed)
     difference = first_set - second_set
@@ -79,12 +60,12 @@ def is_word_guessed(secret_word, letters_guessed):
 
 
 def get_available_letters(letters_guessed):
-
     """
+    For get_available_letters.
+
     Creating an array for letters and showing them lowercase type,
     adding correct letters in array.
     """
-
     available_letters = []
     abc = string.ascii_lowercase
     for letter in abc:
@@ -94,11 +75,7 @@ def get_available_letters(letters_guessed):
 
 
 def match_with_gaps(my_word, other_word):
-    
-    """
-    
-    """
-
+    """Return false in conditions, otherwise return True."""
     new_word = my_word.replace(" ", "")
     if len(new_word) != len(other_word):
         return False
@@ -113,11 +90,7 @@ def match_with_gaps(my_word, other_word):
 
 
 def show_possible_matches(my_word):
-
-    """
-    
-    """
-
+    """Print info if mathed_words = 0, else printing and adding possible matches to matched words."""
     matched_words = []
     for word in wordlist:
         if match_with_gaps(my_word, word):
@@ -130,11 +103,7 @@ def show_possible_matches(my_word):
 
 
 def hangman_with_hints(secret_word, mode=0):
-    
-    """
-
-    """
-    
+    """General functionality of the game."""
     letters_guessed = []
     guesses_remaining = 9
     warnings_remaining = 3
