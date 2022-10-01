@@ -27,7 +27,7 @@ The player guessing the word may, at any time, attempt to guess the whole word.[
     - [Bugs](#bugs)
 4. [Deployment](#deployment)
 5. [Finished product](#finished-product)
-6x. [Credits](#credits)
+6. [Credits](#credits)
     
 ## Plans and structure 
 
@@ -61,13 +61,14 @@ The player guessing the word may, at any time, attempt to guess the whole word.[
 
 ### Changes throughout the process
 
-Throughout the process of making this project I decided to change a couple of things due to the time limit I had to make the game. 
+Throughout the process of making this project I decided to change a couple of things to improve the game. 
 
-- Originally, I planned to have 2 levels easy and hard so the user could choose the level of difficulty they would like to play.
-- I had also planned to have a visible image of hangman being shown so the user could see how many lives they had left until the game was over. 
+- Originally, I had 2 different part of code for hints and without hints game.
+- Also i decided to create an image of hangman.
 
-I decided that these two things were not as important as all the other functions so I would like to either implement them if I have time to at the end of the process or if not, I would like to implement them in the future so I can continue to use this game with family and friends. 
-(UPDATE: In the last few days of this project I had a little extra time to play around with adding these features in and am happy to say that both the hangman image and the choices between easier words or harder words were implemented!)
+For the first section I added another function and added an option at the end of the file to choose which game you want to play. Also I created an image of hangman, that`s took me a lot of effort and time, but hopely i done it.
+
+<img src="images/hangman.png" alt="Screenshot of hangman">
 
 Go back to [Table of contents](#table-of-contents) 
 
@@ -77,26 +78,32 @@ Go back to [Table of contents](#table-of-contents)
 
 ### Instructions 
 - The fist message is showing how much words we use in this game.There is an option to play with hints or without hints.
+
 <img src="images/welcome.png" alt="Screenshot of instructions page">
 
 ### Game
 - When the user starts the game, it shows the user the length of the word they are guessing and asks the user to enter a letter.There is also displayed how many warnings user have.
+
 <img src="images/game.png" alt="Screenshot of game page">
 
 - While the user is playing the game page also shows other things such as error if letter incorrect and showing that user have less guesses.
+
 <img src="images/mistake.png" alt="Screenshot of game page whilst being played">
 
 ### Winning message
 - If the user guesses all letter correctly it will take them to a page that congradulates user and shows your total score.
+
 <img src="images/won.png" alt="Screenshot of the end of the game if the player has won">
 
 ### Extra features
-- I had enough time at the end of this project to add both the hangman image and also give the user the choice of an easy game or a hard game. I had originally put these down as future features but am happy to have been able to implement them before handing my project in.
+- I decided to create an image of hangman to make it more nicely for the user to play this game.
 
 1. The hangman image will change throughout the game, every time the user guesses a letter wrong, the image adds a section.
+
 <img src="images/fail.png" alt="Screenshot of hangman image">
 
 2. The user get a warning when input an intager.
+
 <img src="images/symbol.png" alt="Screenshot of the question what level would the user like to play">
 
 Go back to [Table of contents](#table-of-contents)
@@ -104,11 +111,19 @@ Go back to [Table of contents](#table-of-contents)
 ## Testing
 
 ### Python
-Python was tested using PEP8 [PEP8 validator](http://pep8online.com/) 
+The website pep8online.com is currently down.So I decided to add a PEP8 validator to my Gitpod Workspace directly.
+Runned the command pip3 install pycodestyle.
+PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside your terminal.
 
 The Python results came back with the following:
 
-<img src="images/validate.png" alt="Screenshot of results">
+1.run.py
+
+<img src="images/error.png" alt="run.py errors">
+
+2.show_hangman.py
+
+<img src="images/error1.png" alt="show_hangman.py results">
 
 - 7x line too long 
 
